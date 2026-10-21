@@ -1,7 +1,7 @@
 # METT -> Middle-earth (ME 1.20.1) alignment
 
 对齐目标：把 **MiddleEarth-Thaumaturgy (METT, MC 1.7.10 / TC4 / LOTR-mod v34+)** 的内容对齐到
-**Middle-earth 1.20.1 (Fabric, 经 Sinytra Connector 跑在 Forge 上)** + **Thaumcraft 4R (TC4R 20740)**。
+**Middle-earth 1.20.1 (Fabric, 经 Sinytra Connector 跑在 Forge 上)** + **Thaumcraft 4R (TC4R 20746)**。
 
 - Donor: `H:/MinecraftMods/MiddleEarth-Thaumaturgy` (branch `v36`, 73 java files / 9.4k LOC)
 - Target mod: `H:/MinecraftMods/MiddleEarth-1.20.1` (namespace `me:`, package `net.jukoz.me`)
@@ -107,7 +107,7 @@ METT 用 `LOTRLevelData.getData(player).getAlignment(faction)` 的数值（100 /
 
 ## 5. TC4 -> TC4R 映射
 
-| METT (TC4 1.7.10) | TC4R 20740 |
+| METT (TC4 1.7.10) | TC4R 20746 |
 |---|---|
 | `thaumcraft.api.aspects.Aspect` / `AspectList` | `dev.tc4port.thaumcraft.api.aspect.AspectId` / `AspectDefinition` / `AspectAmounts` / `AspectApi` |
 | `ThaumcraftApi.registerObjectTag` | `AspectApi` / 数据驱动 aspect 注册 |
@@ -119,11 +119,11 @@ METT 用 `LOTRLevelData.getData(player).getAlignment(faction)` 的数值（100 /
 | `ConfigBlocks/ConfigItems` | 无公开对应，改查 TC4R 注册表 |
 | Baubles `IBauble` | **Curios**（TC4R 强依赖 curios 5.14+）+ `VisDiscountGear`/`WarpingGear`/`RunicGear` |
 | TravellersGear / Automagy 兼容 | **删除**（无 1.20.1 版本） |
-| Thaumic Tinkerer 兼容 | 可选：TC4R 侧有 `thaumic-tinkerer-forge-20740` |
+| Thaumic Tinkerer 兼容 | 可选：TC4R 侧有 `thaumic-tinkerer-forge-20746` |
 
 ## 6. 工作分解
 
-- **P1** 构建骨架：MDG legacyforge + Forge 47.4.20 + TC4R 20740 + curios；mod 入口、config、创造标签页。
+- **P1** 构建骨架：MDG legacyforge + Forge 47.4.20 + TC4R 20746 + curios；mod 入口、config、创造标签页。
 - **P2** ME 互操作层 `mett/compat/me/`：注册表查询、派系服务（反射 + 缓存 + 降级）、NPC 生成蛋召唤。
 - **P3** aspect 层：14 个种族 aspect + 11 个派系 aspect；可对齐的物品 aspect 重新注册。
 - **P4** 内容：3 种压缩要素罐 + bookshelf inventarium + storage、法杖核/帽、指环、焦点。

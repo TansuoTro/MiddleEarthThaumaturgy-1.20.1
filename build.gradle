@@ -9,6 +9,10 @@ group = mod_group_id
 base { archivesName = "${mod_id}-${minecraft_version}" }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
+// Thaumic Tinkerer compatibility is optional: the classes are compiled against TT's API but only
+// installed in the development runtime when -PwithTt=true, so the absent path stays testable.
+def withTt = providers.gradleProperty('withTt').map { it.toBoolean() }.getOrElse(true)
+
 // TC4R is not redistributable: it resolves from the project-local repository, seeded from a
 // sibling project. Override with -Ptc4Repository=<dir> when the jars live elsewhere.
 def tc4Repository = file(providers.gradleProperty('tc4Repository').getOrElse('local-repo'))
@@ -51,7 +55,9 @@ repositories {
     maven {
         name = 'LocalTC4R'
         url = uri(tc4Repository)
-        content { includeGroup 'dev.tc4port' }
+        content {
+            includeGroup 'dev.tc4port'
+        }
     }
     maven { url = 'https://maven.theillusivec4.top' }
     maven { url = 'https://maven.minecraftforge.net' }
@@ -61,9 +67,19 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    // Thaumcraft 4R: compile against the API artifact, run against the full mod.
+
+    // Thaumcraft 4R. Compile against the full artifact rather than the -api classifier: the
+    // published set only ships the full jar, and the API package is part of it.
     compileOnly(fg.deobf("dev.tc4port:thaumcraft-forge:${thaumcraft_version}:api", { transitive = false }))
     runtimeOnly(fg.deobf("dev.tc4port:thaumcraft-forge:${thaumcraft_version}", { transitive = false }))
+
+    // Thaumic Tinkerer: optional at runtime, compiled against so the compatibility recipes and
+    // the TT wand rod updater are type-checked.
+    compileOnly(fg.deobf("dev.tc4port:thaumic-tinkerer-forge:${tt_version}:api", { transitive = false }))
+    if (withTt) {
+        runtimeOnly(fg.deobf("dev.tc4port:thaumic-tinkerer-forge:${tt_version}", { transitive = false }))
+    }
+
     // TC4R declares both as mandatory, so the development runtime needs them too.
     runtimeOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}", { transitive = false }))
     runtimeOnly(fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}", { transitive = false }))
@@ -76,8 +92,8 @@ tasks.named('processResources', ProcessResources).configure {
                   mod_id: mod_id, mod_name: mod_name, mod_license: mod_license,
                   mod_version: mod_version, mod_authors: mod_authors,
                   mod_description: mod_description,
-                  thaumcraft_runtime_version: thaumcraft_runtime_version]
+                  thaumcraft_runtime_version: thaumcraft_runtime_version,
+                  tt_runtime_version: tt_runtime_version]
     inputs.properties values
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) { expand values }
 }
-
