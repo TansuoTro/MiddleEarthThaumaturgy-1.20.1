@@ -1,0 +1,9 @@
+{
+  "color": "#F2E479",
+  "components": [
+    "mett:edhel",
+    "thaumcraft:auram"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

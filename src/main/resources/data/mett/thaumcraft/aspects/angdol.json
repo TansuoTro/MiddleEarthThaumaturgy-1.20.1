@@ -1,0 +1,9 @@
+{
+  "color": "#3F5887",
+  "components": [
+    "mett:nauglin",
+    "thaumcraft:perfodio"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

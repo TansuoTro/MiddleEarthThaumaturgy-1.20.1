@@ -1,0 +1,9 @@
+{
+  "color": "#EAC0E5",
+  "components": [
+    "thaumcraft:humanus",
+    "mett:alfirin"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

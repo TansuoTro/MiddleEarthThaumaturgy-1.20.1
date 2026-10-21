@@ -1,0 +1,9 @@
+{
+  "color": "#F2D18E",
+  "components": [
+    "thaumcraft:humanus",
+    "thaumcraft:lucrum"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

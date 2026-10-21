@@ -1,0 +1,9 @@
+{
+  "color": "#2B1501",
+  "components": [
+    "mett:orchoth",
+    "thaumcraft:telum"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

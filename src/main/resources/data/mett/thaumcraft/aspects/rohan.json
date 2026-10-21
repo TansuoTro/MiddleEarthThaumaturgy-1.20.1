@@ -1,0 +1,9 @@
+{
+  "color": "#BC7709",
+  "components": [
+    "mett:abonnen",
+    "thaumcraft:bestia"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

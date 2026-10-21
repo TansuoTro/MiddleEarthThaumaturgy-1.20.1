@@ -1,0 +1,9 @@
+{
+  "color": "#17661C",
+  "components": [
+    "thaumcraft:arbor",
+    "thaumcraft:motus"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

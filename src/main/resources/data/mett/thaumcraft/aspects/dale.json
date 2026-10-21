@@ -1,0 +1,9 @@
+{
+  "color": "#DB9655",
+  "components": [
+    "mett:abonnen",
+    "thaumcraft:permutatio"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

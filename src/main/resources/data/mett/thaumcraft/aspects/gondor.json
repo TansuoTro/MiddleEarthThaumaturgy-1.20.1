@@ -1,0 +1,9 @@
+{
+  "color": "#E8E6E3",
+  "components": [
+    "mett:abonnen",
+    "thaumcraft:ordo"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

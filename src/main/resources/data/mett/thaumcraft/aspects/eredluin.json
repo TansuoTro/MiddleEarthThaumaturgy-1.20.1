@@ -1,0 +1,9 @@
+{
+  "color": "#4794CC",
+  "components": [
+    "mett:nauglin",
+    "thaumcraft:gelum"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

@@ -1,0 +1,9 @@
+{
+  "color": "#492B22",
+  "components": [
+    "mett:orchoth",
+    "thaumcraft:tenebrae"
+  ],
+  "blend": "additive",
+  "natural_generation_weight": 0
+}

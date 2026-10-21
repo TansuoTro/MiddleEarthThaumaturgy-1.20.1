@@ -1,0 +1,9 @@
+{
+  "color": "#AA0606",
+  "components": [
+    "mett:alfirin",
+    "thaumcraft:alienis"
+  ],
+  "blend": "additive",
+  "natural_generation_weight": 0
+}

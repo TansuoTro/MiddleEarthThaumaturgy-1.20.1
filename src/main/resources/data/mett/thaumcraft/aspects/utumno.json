@@ -1,0 +1,9 @@
+{
+  "color": "#2D0404",
+  "components": [
+    "mett:valaraukar",
+    "thaumcraft:alienis"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

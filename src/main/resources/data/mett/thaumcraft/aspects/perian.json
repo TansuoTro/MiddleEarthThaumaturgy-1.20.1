@@ -1,0 +1,9 @@
+{
+  "color": "#ED6136",
+  "components": [
+    "thaumcraft:humanus",
+    "thaumcraft:sensus"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

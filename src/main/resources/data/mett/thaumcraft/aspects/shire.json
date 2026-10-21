@@ -1,0 +1,9 @@
+{
+  "color": "#51FF57",
+  "components": [
+    "mett:perian",
+    "thaumcraft:meto"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

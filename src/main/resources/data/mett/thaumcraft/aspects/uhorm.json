@@ -1,0 +1,9 @@
+{
+  "color": "#BA8723",
+  "components": [
+    "thaumcraft:arbor",
+    "thaumcraft:bestia"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

@@ -1,0 +1,9 @@
+{
+  "color": "#A87443",
+  "components": [
+    "mett:orchoth",
+    "thaumcraft:venenum"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

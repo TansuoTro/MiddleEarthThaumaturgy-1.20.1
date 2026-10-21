@@ -1,0 +1,9 @@
+{
+  "color": "#605341",
+  "components": [
+    "thaumcraft:bestia",
+    "thaumcraft:telum"
+  ],
+  "blend": "additive",
+  "natural_generation_weight": 0
+}

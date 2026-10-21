@@ -1,0 +1,9 @@
+{
+  "color": "#4BF4F4",
+  "components": [
+    "thaumcraft:permutatio",
+    "thaumcraft:praecantatio"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

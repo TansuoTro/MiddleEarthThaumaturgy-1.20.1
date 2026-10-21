@@ -1,0 +1,83 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '6.0.54'
+}
+
+version = mod_version
+group = mod_group_id
+base { archivesName = "${mod_id}-${minecraft_version}" }
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+// TC4R is not redistributable: it resolves from the project-local repository, seeded from a
+// sibling project. Override with -Ptc4Repository=<dir> when the jars live elsewhere.
+def tc4Repository = file(providers.gradleProperty('tc4Repository').getOrElse('local-repo'))
+
+minecraft {
+    mappings channel: mapping_channel, version: mapping_version
+    copyIdeResources = true
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.console.level', 'info'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods { "${mod_id}" { source sourceSets.main } }
+        }
+        client {
+            workingDirectory project.file('run-client')
+            // Rosetta bridge: the socket only starts on ServerStartedEvent, i.e. once a world loads.
+            property 'rosetta.remote.port', '48795'
+            if (project.hasProperty('quickPlay')) {
+                args '--quickPlaySingleplayer', project.property('quickPlay')
+            }
+        }
+        server {
+            workingDirectory project.file('run-server')
+            args '--nogui'
+            property 'rosetta.remote.port', '48796'
+        }
+        data {
+            workingDirectory project.file('run-data')
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'),
+                    '--existing', file('src/main/resources/')
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    maven {
+        name = 'LocalTC4R'
+        url = uri(tc4Repository)
+        content { includeGroup 'dev.tc4port' }
+    }
+    maven { url = 'https://maven.theillusivec4.top' }
+    maven { url = 'https://maven.minecraftforge.net' }
+    maven { url = 'https://modmaven.dev' }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    // Thaumcraft 4R: compile against the API artifact, run against the full mod.
+    compileOnly(fg.deobf("dev.tc4port:thaumcraft-forge:${thaumcraft_version}:api", { transitive = false }))
+    runtimeOnly(fg.deobf("dev.tc4port:thaumcraft-forge:${thaumcraft_version}", { transitive = false }))
+    // TC4R declares both as mandatory, so the development runtime needs them too.
+    runtimeOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}", { transitive = false }))
+    runtimeOnly(fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}", { transitive = false }))
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    def values = [minecraft_version_range: minecraft_version_range,
+                  forge_version_range: forge_version_range,
+                  loader_version_range: loader_version_range,
+                  mod_id: mod_id, mod_name: mod_name, mod_license: mod_license,
+                  mod_version: mod_version, mod_authors: mod_authors,
+                  mod_description: mod_description,
+                  thaumcraft_runtime_version: thaumcraft_runtime_version]
+    inputs.properties values
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) { expand values }
+}
+

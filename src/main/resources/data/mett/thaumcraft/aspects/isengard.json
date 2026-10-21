@@ -1,0 +1,9 @@
+{
+  "color": "#353434",
+  "components": [
+    "mett:mornogol",
+    "thaumcraft:praecantatio"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

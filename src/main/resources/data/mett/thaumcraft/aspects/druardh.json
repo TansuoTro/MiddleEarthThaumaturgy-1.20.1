@@ -1,0 +1,9 @@
+{
+  "color": "#1CA52C",
+  "components": [
+    "mett:edhel",
+    "thaumcraft:arbor"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

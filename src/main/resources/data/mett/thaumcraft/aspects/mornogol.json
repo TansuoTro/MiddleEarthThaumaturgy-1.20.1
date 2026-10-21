@@ -1,0 +1,9 @@
+{
+  "color": "#726E6D",
+  "components": [
+    "mett:orchoth",
+    "mett:abonnen"
+  ],
+  "blend": "additive",
+  "natural_generation_weight": 0
+}

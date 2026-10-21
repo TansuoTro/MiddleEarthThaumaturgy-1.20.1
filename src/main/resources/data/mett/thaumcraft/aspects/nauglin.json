@@ -1,0 +1,9 @@
+{
+  "color": "#AFB9C9",
+  "components": [
+    "thaumcraft:humanus",
+    "thaumcraft:perfodio"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}

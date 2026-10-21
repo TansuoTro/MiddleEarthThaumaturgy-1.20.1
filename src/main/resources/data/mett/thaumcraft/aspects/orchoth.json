@@ -1,0 +1,9 @@
+{
+  "color": "#47775A",
+  "components": [
+    "mett:edhel",
+    "thaumcraft:exanimis"
+  ],
+  "blend": "additive",
+  "natural_generation_weight": 0
+}

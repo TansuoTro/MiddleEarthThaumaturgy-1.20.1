@@ -1,0 +1,9 @@
+{
+  "color": "#DDDDDD",
+  "components": [
+    "mett:alfirin",
+    "thaumcraft:praecantatio"
+  ],
+  "blend": "normal",
+  "natural_generation_weight": 0
+}
