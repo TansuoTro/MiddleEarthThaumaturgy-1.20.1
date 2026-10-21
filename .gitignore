@@ -1,5 +1,10 @@
 build/
 .gradle/
 run/
+run-client/
+run-server/
+run-data/
 out/
 *.log
+# TC4R is not redistributable; the local Maven repository is seeded per machine.
+local-repo/
