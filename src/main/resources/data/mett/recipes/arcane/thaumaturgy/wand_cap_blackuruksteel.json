@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "me:burzum_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:wand_cap_blackuruksteel"
+  },
+  "vis": {
+    "ignis": 6,
+    "tenebrae": 6
+  }
+}

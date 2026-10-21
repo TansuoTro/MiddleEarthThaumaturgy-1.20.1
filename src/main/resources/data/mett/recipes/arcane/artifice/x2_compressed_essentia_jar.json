@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "GGG",
+    "GJG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "J": {
+      "item": "mett:compressed_essentia_jar"
+    }
+  },
+  "result": {
+    "item": "mett:x2_compressed_essentia_jar"
+  },
+  "vis": {
+    "ordo": 20,
+    "aqua": 8
+  }
+}

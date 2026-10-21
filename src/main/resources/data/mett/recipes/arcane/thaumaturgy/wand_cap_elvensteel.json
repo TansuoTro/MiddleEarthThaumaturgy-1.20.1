@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "me:elven_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:wand_cap_elvensteel"
+  },
+  "vis": {
+    "aer": 8,
+    "ordo": 4
+  }
+}

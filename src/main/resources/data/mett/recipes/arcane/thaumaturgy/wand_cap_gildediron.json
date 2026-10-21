@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:wand_cap_gildediron"
+  },
+  "vis": {
+    "ordo": 6,
+    "lucrum": 4
+  }
+}

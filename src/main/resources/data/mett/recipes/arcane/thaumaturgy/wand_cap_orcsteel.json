@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "me:orc_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:wand_cap_orcsteel"
+  },
+  "vis": {
+    "ignis": 6,
+    "perditio": 4
+  }
+}

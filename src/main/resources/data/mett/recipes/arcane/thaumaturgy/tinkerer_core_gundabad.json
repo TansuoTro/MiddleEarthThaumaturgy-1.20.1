@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "  M",
+    " S ",
+    "S  "
+  ],
+  "key": {
+    "M": {
+      "item": "me:orc_steel_ingot"
+    },
+    "S": {
+      "item": "thaumcraft:thaumium_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:tinkerer_core_gundabad"
+  },
+  "vis": {
+    "aer": 8,
+    "ordo": 8,
+    "praecantatio": 4
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mett:block/compressed_essentia_jar"
+    }
+  }
+}

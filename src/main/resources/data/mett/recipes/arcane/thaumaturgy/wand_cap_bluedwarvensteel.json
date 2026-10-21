@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "me:khazad_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:wand_cap_bluedwarvensteel"
+  },
+  "vis": {
+    "terra": 8,
+    "aqua": 4
+  }
+}

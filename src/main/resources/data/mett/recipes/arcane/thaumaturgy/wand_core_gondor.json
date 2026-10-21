@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "  M",
+    " S ",
+    "S  "
+  ],
+  "key": {
+    "M": {
+      "item": "me:steel_ingot"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "mett:wand_core_gondor"
+  },
+  "vis": {
+    "aer": 4,
+    "ordo": 4
+  }
+}

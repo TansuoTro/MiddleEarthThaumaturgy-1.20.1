@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "me:dwarven_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:wand_cap_dwarvensteel"
+  },
+  "vis": {
+    "terra": 8,
+    "ordo": 4
+  }
+}

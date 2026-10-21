@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "me:mithril_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:wand_cap_mithril"
+  },
+  "vis": {
+    "ordo": 8,
+    "aer": 4
+  }
+}

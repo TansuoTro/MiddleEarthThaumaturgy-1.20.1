@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "  M",
+    " S ",
+    "S  "
+  ],
+  "key": {
+    "M": {
+      "item": "me:uruk_steel_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "mett:staff_core_uruk_hai"
+  },
+  "vis": {
+    "aer": 6,
+    "ordo": 6
+  }
+}

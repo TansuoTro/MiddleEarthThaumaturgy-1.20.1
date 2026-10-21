@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "me:edhel_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:wand_cap_galvorn"
+  },
+  "vis": {
+    "aer": 6,
+    "tenebrae": 4
+  }
+}

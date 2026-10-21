@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "me:morgul_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:wand_cap_morgulsteel"
+  },
+  "vis": {
+    "perditio": 8,
+    "tenebrae": 4
+  }
+}
