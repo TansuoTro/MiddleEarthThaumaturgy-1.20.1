@@ -88,7 +88,8 @@ public final class SummonFocus {
         if (tier == MiddleEarthCompat.TIER_NONE) {
             if (action == VisAction.EXECUTE) {
                 player.displayClientMessage(
-                        Component.translatable("mett.focus.summon.standing", faction.factionId()), true);
+                        Component.translatable("mett.focus.summon.standing",
+                                Component.translatable("mett.faction." + faction.key())), true);
             }
             return FocusActionResult.FAILED;
         }
