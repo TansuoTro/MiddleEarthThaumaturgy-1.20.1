@@ -55,7 +55,7 @@ renamed to the `<artifactId>-<version>` Maven layout on seeding.
 | P4a faction wands | 11 rod items + rods + faction recharge behaviour; Thaumic Tinkerer variants (1000 vis, glowing) register when TT is present |
 | P4b other content | done - 3 compressed essentia jars, 10 metal storage blocks, inventarium bookshelf, warpward ring (Curios), one bedrock-remover focus and one summon focus per kept faction (11) |
 | P5 recipes/research | done - 46 arcane recipes, 12 infusion recipes, 10 storage recipes, one METT research category with 7 entries, object aspects for all 70 items |
-| P6 runtime verification | in progress - staged in the Sinytra Connector instance |
+| P6 runtime verification | verified in the Sinytra Connector instance - the mod loads beside TC4R/TT/Curios/TerraBlender and Middle-earth, the 12 focus profiles and 7 research entries parse, every item and block registers and places, and no METT model or recipe errors are logged |
 
 ### Deliberately not ported
 

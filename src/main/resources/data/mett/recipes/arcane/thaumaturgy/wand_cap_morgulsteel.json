@@ -13,7 +13,6 @@
     "item": "mett:wand_cap_morgulsteel"
   },
   "vis": {
-    "perditio": 8,
-    "tenebrae": 4
+    "perditio": 12
   }
 }
