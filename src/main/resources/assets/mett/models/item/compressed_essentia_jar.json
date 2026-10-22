@@ -1,3 +1,6 @@
 {
-  "parent": "mett:block/compressed_essentia_jar"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "mett:item/compressed_essentia_jar"
+  }
 }

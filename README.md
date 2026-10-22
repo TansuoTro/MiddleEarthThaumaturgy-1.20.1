@@ -54,7 +54,9 @@ renamed to the `<artifactId>-<version>` Maven layout on seeding.
 | P3 aspects | 25 of the donor's 39 data-pack aspects ported (13 faction aspects without a Middle-earth counterpart and `nazgul` are dropped) |
 | P4a faction wands | 11 rod items + rods + faction recharge behaviour; Thaumic Tinkerer variants (1000 vis, glowing) register when TT is present |
 | P4b other content | done - 3 compressed essentia jars, 10 metal storage blocks, inventarium bookshelf, warpward ring (Curios), one bedrock-remover focus and one summon focus per kept faction (11) |
+| P4c jar and wand visuals | done - the jars are 1.7's 10/16 x 12/16 glass body with a 6x2x6 lid, an aspect-coloured liquid box and a facing paper label drawn by a block entity renderer, and every wand part uses the donor's own inventory sprite (the caps keep their three-frame animation) |
 | P5 recipes/research | done - 46 arcane recipes, 12 infusion recipes, 10 storage recipes, one METT research category with 7 entries, object aspects for all 70 items |
+| P5b tab/localization | done - the mod has its own creative tab, and both `en_us.json` and `zh_cn.json` carry the same 131 keys (items, blocks, the 25 METT aspects under `tc.aspect.*`, the research category/entry names, and the ring/focus tooltips) |
 | P6 runtime verification | verified in the Sinytra Connector instance - the mod loads beside TC4R/TT/Curios/TerraBlender and Middle-earth, the 12 focus profiles and 7 research entries parse, every item and block registers and places, and no METT model or recipe errors are logged |
 
 ### Deliberately not ported

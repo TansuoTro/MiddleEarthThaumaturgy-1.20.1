@@ -34,10 +34,14 @@ public class EssentiaJarBlockEntity extends BlockEntity
 
     private static final String KEY_ASPECT = "Aspect";
     private static final String KEY_AMOUNT = "Amount";
+    /** The donor stored the label's aspect under this name. */
+    private static final String KEY_FILTER = "AspectFilter";
 
     @Nullable
     private AspectId aspect;
     private int amount;
+    @Nullable
+    private AspectId filter;
     private int tick;
 
     public EssentiaJarBlockEntity(BlockPos pos, BlockState state) {
@@ -68,7 +72,40 @@ public class EssentiaJarBlockEntity extends BlockEntity
     @Nullable
     @Override
     public AspectId filter() {
-        return null;
+        return this.filter;
+    }
+
+    @Nullable
+    public AspectId aspect() {
+        return this.aspect;
+    }
+
+    public int amount() {
+        return this.amount;
+    }
+
+    /** @return whether the label was applied */
+    public boolean setFilter(@Nullable AspectId selected) {
+        if (selected == null || this.filter != null) {
+            return false;
+        }
+        this.filter = selected;
+        this.setChanged();
+        this.sync();
+        return true;
+    }
+
+    /** @return the aspect that was filtered, or null if there was no label */
+    @Nullable
+    public AspectId clearFilter() {
+        if (this.filter == null) {
+            return null;
+        }
+        AspectId removed = this.filter;
+        this.filter = null;
+        this.setChanged();
+        this.sync();
+        return removed;
     }
 
     @Override
@@ -139,7 +176,10 @@ public class EssentiaJarBlockEntity extends BlockEntity
     @Nullable
     @Override
     public AspectId suctionType(Direction face) {
-        return this.aspect != null && AspectApi.contains(this.aspect) ? this.aspect : null;
+        if (this.aspect != null && AspectApi.contains(this.aspect)) {
+            return this.aspect;
+        }
+        return this.filter != null && AspectApi.contains(this.filter) ? this.filter : null;
     }
 
     @Override
@@ -151,17 +191,14 @@ public class EssentiaJarBlockEntity extends BlockEntity
         if (this.amount >= capacity()) {
             return 0;
         }
-        if (this.aspect == null) {
-            // An empty, unlabelled jar still advertises base suction so a tube can push into it.
-            return block.suction(false, this.amount, capacity());
-        }
-        return block.suction(false, this.amount, capacity());
+        // A labelled jar advertises the filtered curve, as TileJarFillable did.
+        return block.suction(this.filter != null, this.amount, capacity());
     }
 
     @Override
     public int minimumSuction() {
         EssentiaJarBlock block = jar();
-        return block == null ? 48 : block.suction(false, this.amount, capacity());
+        return block == null ? 48 : block.suction(this.filter != null, this.amount, capacity());
     }
 
     @Override
@@ -244,6 +281,7 @@ public class EssentiaJarBlockEntity extends BlockEntity
         super.load(tag);
         this.aspect = tag.contains(KEY_ASPECT) ? parseAspect(tag.getString(KEY_ASPECT)) : null;
         this.amount = Math.max(0, tag.getInt(KEY_AMOUNT));
+        this.filter = tag.contains(KEY_FILTER) ? parseAspect(tag.getString(KEY_FILTER)) : null;
     }
 
     @Override
@@ -251,6 +289,9 @@ public class EssentiaJarBlockEntity extends BlockEntity
         super.saveAdditional(tag);
         if (this.aspect != null) {
             tag.putString(KEY_ASPECT, this.aspect.serialized());
+        }
+        if (this.filter != null) {
+            tag.putString(KEY_FILTER, this.filter.serialized());
         }
         tag.putInt(KEY_AMOUNT, this.amount);
     }

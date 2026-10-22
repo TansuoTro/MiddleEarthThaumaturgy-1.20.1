@@ -1,6 +1,147 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "render_type": "minecraft:translucent",
   "textures": {
-    "all": "mett:block/x2_compressed_essentia_jar"
-  }
+    "particle": "mett:block/x2_compressed_essentia_jar",
+    "sheet": "mett:models/model_compressed_jar"
+  },
+  "elements": [
+    {
+      "from": [
+        3,
+        0,
+        3
+      ],
+      "to": [
+        13,
+        12,
+        13
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            5.0,
+            5.0,
+            7.5,
+            10.0
+          ],
+          "texture": "#sheet"
+        },
+        "up": {
+          "uv": [
+            2.5,
+            5.0,
+            5.0,
+            10.0
+          ],
+          "texture": "#sheet"
+        },
+        "north": {
+          "uv": [
+            7.5,
+            10.0,
+            10.0,
+            16.0
+          ],
+          "texture": "#sheet"
+        },
+        "south": {
+          "uv": [
+            2.5,
+            10.0,
+            5.0,
+            16.0
+          ],
+          "texture": "#sheet"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            10.0,
+            2.5,
+            16.0
+          ],
+          "texture": "#sheet"
+        },
+        "east": {
+          "uv": [
+            5.0,
+            10.0,
+            7.5,
+            16.0
+          ],
+          "texture": "#sheet"
+        }
+      }
+    },
+    {
+      "from": [
+        5,
+        12,
+        5
+      ],
+      "to": [
+        11,
+        14,
+        11
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            3.0,
+            1.0,
+            4.5,
+            4.0
+          ],
+          "texture": "#sheet"
+        },
+        "up": {
+          "uv": [
+            1.5,
+            1.0,
+            3.0,
+            4.0
+          ],
+          "texture": "#sheet"
+        },
+        "north": {
+          "uv": [
+            4.5,
+            4.0,
+            6.0,
+            5.0
+          ],
+          "texture": "#sheet"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            4.0,
+            3.0,
+            5.0
+          ],
+          "texture": "#sheet"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            4.0,
+            1.5,
+            5.0
+          ],
+          "texture": "#sheet"
+        },
+        "east": {
+          "uv": [
+            3.0,
+            4.0,
+            4.5,
+            5.0
+          ],
+          "texture": "#sheet"
+        }
+      }
+    }
+  ]
 }

@@ -1,6 +1,15 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
+      "model": "mett:block/x2_compressed_essentia_jar"
+    },
+    "facing=east": {
+      "model": "mett:block/x2_compressed_essentia_jar"
+    },
+    "facing=south": {
+      "model": "mett:block/x2_compressed_essentia_jar"
+    },
+    "facing=west": {
       "model": "mett:block/x2_compressed_essentia_jar"
     }
   }
