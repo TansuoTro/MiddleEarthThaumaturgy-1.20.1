@@ -8,6 +8,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sol3675.middleearththaumaturgy.common.METTCreativeTab;
 import sol3675.middleearththaumaturgy.common.blocks.METTBlocks;
 import sol3675.middleearththaumaturgy.common.items.METTItems;
 import sol3675.middleearththaumaturgy.compat.me.MiddleEarthCompat;
@@ -33,6 +34,7 @@ public class MiddleEarthThaumaturgy {
         METTBlocks.BLOCKS.register(bus);
         METTBlocks.BLOCK_ITEMS.register(bus);
         METTBlocks.BLOCK_ENTITIES.register(bus);
+        METTCreativeTab.TABS.register(bus);
         // Touching the focus registry is what makes its static initialiser run; the items themselves
         // go into the same deferred register as everything else.
         METTFoci.SUMMON.size();
