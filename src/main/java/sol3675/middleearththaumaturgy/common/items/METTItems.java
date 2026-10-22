@@ -29,6 +29,10 @@ public final class METTItems {
     public static final Map<String, RegistryObject<Item>> TINKERER_CORES;
     public static final Map<String, RegistryObject<Item>> WAND_CAPS;
 
+    /** The donor's only bauble: the warpward ring, worn in a Curios ring slot. */
+    public static final RegistryObject<Item> RING_WARPWARD =
+            ITEMS.register("ring_warpward", ItemWarpwardRing::new);
+
     static {
         Map<String, RegistryObject<Item>> wands = new LinkedHashMap<>();
         Map<String, RegistryObject<Item>> staffs = new LinkedHashMap<>();

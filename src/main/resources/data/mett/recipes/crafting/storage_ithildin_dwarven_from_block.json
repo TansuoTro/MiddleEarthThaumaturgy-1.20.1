@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mett:storage_ithildin_dwarven"
+    }
+  ],
+  "result": {
+    "item": "me:dwarven_steel_ingot",
+    "count": 9
+  }
+}

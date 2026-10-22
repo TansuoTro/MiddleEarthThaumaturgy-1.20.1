@@ -1,0 +1,72 @@
+{
+  "focus_profiles": [
+    {
+      "focus": "mett:focus_summon_dale",
+      "color": 14390869,
+      "base_cost": {
+        "ignis": 3000,
+        "terra": 3000,
+        "ordo": 3000
+      },
+      "ranks": [
+        [
+          "thaumcraft:frugal"
+        ],
+        [
+          "thaumcraft:frugal"
+        ],
+        [
+          "thaumcraft:frugal"
+        ],
+        [
+          "thaumcraft:frugal"
+        ],
+        [
+          "thaumcraft:frugal"
+        ]
+      ],
+      "parameters": {
+        "vis_discount": {
+          "base": 0,
+          "per_level": {
+            "thaumcraft:frugal": 0.1
+          },
+          "min": 0,
+          "max": 1
+        }
+      },
+      "pipeline": {
+        "modules": [
+          "thaumcraft:focus_actions"
+        ],
+        "bindings": [
+          {
+            "id": "thaumcraft:actions/predict",
+            "stage": "thaumcraft:cast/predict",
+            "handler": "thaumcraft:prediction_cost",
+            "priority": 0
+          },
+          {
+            "id": "thaumcraft:actions/cast",
+            "stage": "thaumcraft:cast/step",
+            "handler": "thaumcraft:focus_actions",
+            "priority": -100
+          },
+          {
+            "id": "thaumcraft:actions/block",
+            "stage": "thaumcraft:use/before_formation",
+            "handler": "thaumcraft:focus_actions",
+            "priority": -100
+          },
+          {
+            "id": "thaumcraft:actions/input",
+            "stage": "thaumcraft:client/input_after_block",
+            "handler": "thaumcraft:focus_actions",
+            "priority": -100
+          }
+        ],
+        "casts": {}
+      }
+    }
+  ]
+}

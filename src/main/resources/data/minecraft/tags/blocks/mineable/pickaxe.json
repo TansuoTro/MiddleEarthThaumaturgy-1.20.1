@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "mett:storage_gulduril_black_uruk",
+    "mett:storage_ithildin_blue_dwarven",
+    "mett:storage_ithildin_dwarven",
+    "mett:storage_edhelmir_elven",
+    "mett:storage_daedelos_galvorn",
+    "mett:storage_stared_mithril",
+    "mett:storage_daedelos_morgul",
+    "mett:storage_durnaur_orc",
+    "mett:storage_gulduril_uruk",
+    "mett:storage_brighten_gilded_iron"
+  ]
+}

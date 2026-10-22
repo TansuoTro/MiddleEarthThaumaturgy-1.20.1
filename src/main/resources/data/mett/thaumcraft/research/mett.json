@@ -1,0 +1,341 @@
+{
+  "categories": [
+    {
+      "key": "METT",
+      "icon": "mett:textures/item/wand_core_gondor.png",
+      "background": "thaumcraft:textures/gui/gui_researchback.png",
+      "sort_order": 10
+    }
+  ],
+  "entries": [
+    {
+      "key": "METT_ROOT",
+      "category": "METT",
+      "aspects": {
+        "praecantatio": 5,
+        "humanus": 5
+      },
+      "display_column": 0,
+      "display_row": 0,
+      "complexity": 1,
+      "icon": {
+        "type": "STACK",
+        "stack": {
+          "id": "mett:wand_core_gondor"
+        }
+      },
+      "flags": [],
+      "parents": [],
+      "hidden_parents": [],
+      "siblings": [],
+      "object_triggers": [],
+      "entity_triggers": [],
+      "aspect_triggers": [],
+      "warp": 0,
+      "pages": [
+        {
+          "type": "TEXT",
+          "value": "mett.research_page.METT_ROOT.1",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "DISABLED",
+          "recipe_ids": []
+        }
+      ]
+    },
+    {
+      "key": "METT_WANDS",
+      "category": "METT",
+      "aspects": {
+        "praecantatio": 5,
+        "instrumentum": 5,
+        "metallum": 5
+      },
+      "display_column": 0,
+      "display_row": 2,
+      "complexity": 1,
+      "icon": {
+        "type": "STACK",
+        "stack": {
+          "id": "mett:wand_core_dwarf"
+        }
+      },
+      "flags": [],
+      "parents": [
+        "METT_ROOT"
+      ],
+      "hidden_parents": [],
+      "siblings": [],
+      "object_triggers": [],
+      "entity_triggers": [],
+      "aspect_triggers": [],
+      "warp": 0,
+      "pages": [
+        {
+          "type": "TEXT",
+          "value": "mett.research_page.METT_WANDS.1",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "DISABLED",
+          "recipe_ids": []
+        },
+        {
+          "type": "ARCANE_CRAFTING",
+          "value": "",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "COMPLETED_SINGLE",
+          "recipe_ids": [
+            "mett:arcane/thaumaturgy/wand_core_gondor"
+          ]
+        },
+        {
+          "type": "ARCANE_CRAFTING",
+          "value": "",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "COMPLETED_SINGLE",
+          "recipe_ids": [
+            "mett:arcane/thaumaturgy/wand_cap_mithril"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "METT_JARS",
+      "category": "METT",
+      "aspects": {
+        "vitreus": 5,
+        "vinculum": 5
+      },
+      "display_column": 2,
+      "display_row": 2,
+      "complexity": 1,
+      "icon": {
+        "type": "STACK",
+        "stack": {
+          "id": "mett:compressed_essentia_jar"
+        }
+      },
+      "flags": [],
+      "parents": [
+        "METT_WANDS"
+      ],
+      "hidden_parents": [],
+      "siblings": [],
+      "object_triggers": [],
+      "entity_triggers": [],
+      "aspect_triggers": [],
+      "warp": 0,
+      "pages": [
+        {
+          "type": "TEXT",
+          "value": "mett.research_page.METT_JARS.1",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "DISABLED",
+          "recipe_ids": []
+        },
+        {
+          "type": "ARCANE_CRAFTING",
+          "value": "",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "COMPLETED_SINGLE",
+          "recipe_ids": [
+            "mett:arcane/artifice/compressed_essentia_jar"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "METT_STORAGE",
+      "category": "METT",
+      "aspects": {
+        "metallum": 5,
+        "lux": 5
+      },
+      "display_column": -2,
+      "display_row": 2,
+      "complexity": 1,
+      "icon": {
+        "type": "STACK",
+        "stack": {
+          "id": "mett:storage_stared_mithril"
+        }
+      },
+      "flags": [],
+      "parents": [
+        "METT_ROOT"
+      ],
+      "hidden_parents": [],
+      "siblings": [],
+      "object_triggers": [],
+      "entity_triggers": [],
+      "aspect_triggers": [],
+      "warp": 0,
+      "pages": [
+        {
+          "type": "TEXT",
+          "value": "mett.research_page.METT_STORAGE.1",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "DISABLED",
+          "recipe_ids": []
+        },
+        {
+          "type": "NORMAL_CRAFTING",
+          "value": "",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "COMPLETED_SINGLE",
+          "recipe_ids": [
+            "mett:crafting/storage_stared_mithril"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "METT_RING",
+      "category": "METT",
+      "aspects": {
+        "auram": 5,
+        "vitium": 5
+      },
+      "display_column": -2,
+      "display_row": -2,
+      "complexity": 1,
+      "icon": {
+        "type": "STACK",
+        "stack": {
+          "id": "mett:ring_warpward"
+        }
+      },
+      "flags": [],
+      "parents": [
+        "METT_ROOT"
+      ],
+      "hidden_parents": [],
+      "siblings": [],
+      "object_triggers": [],
+      "entity_triggers": [],
+      "aspect_triggers": [],
+      "warp": 0,
+      "pages": [
+        {
+          "type": "TEXT",
+          "value": "mett.research_page.METT_RING.1",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "DISABLED",
+          "recipe_ids": []
+        },
+        {
+          "type": "INFUSION_CRAFTING",
+          "value": "",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "COMPLETED_SINGLE",
+          "recipe_ids": [
+            "mett:infusion/thaumaturgy/ring_warpward"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "METT_FOCUS_BEDROCK",
+      "category": "METT",
+      "aspects": {
+        "perditio": 5,
+        "vacuos": 5
+      },
+      "display_column": 2,
+      "display_row": -2,
+      "complexity": 2,
+      "icon": {
+        "type": "STACK",
+        "stack": {
+          "id": "mett:focus_bedrock_remover"
+        }
+      },
+      "flags": [],
+      "parents": [
+        "METT_ROOT"
+      ],
+      "hidden_parents": [],
+      "siblings": [],
+      "object_triggers": [],
+      "entity_triggers": [],
+      "aspect_triggers": [],
+      "warp": 1,
+      "pages": [
+        {
+          "type": "TEXT",
+          "value": "mett.research_page.METT_FOCUS_BEDROCK.1",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "DISABLED",
+          "recipe_ids": []
+        },
+        {
+          "type": "INFUSION_CRAFTING",
+          "value": "",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "COMPLETED_SINGLE",
+          "recipe_ids": [
+            "mett:infusion/thaumaturgy/focus_bedrock_remover"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "METT_FOCUS_SUMMON",
+      "category": "METT",
+      "aspects": {
+        "permutatio": 5,
+        "victus": 5,
+        "humanus": 5
+      },
+      "display_column": 2,
+      "display_row": -4,
+      "complexity": 2,
+      "icon": {
+        "type": "STACK",
+        "stack": {
+          "id": "mett:focus_summon_gondor"
+        }
+      },
+      "flags": [],
+      "parents": [
+        "METT_FOCUS_BEDROCK"
+      ],
+      "hidden_parents": [],
+      "siblings": [],
+      "object_triggers": [],
+      "entity_triggers": [],
+      "aspect_triggers": [],
+      "warp": 0,
+      "pages": [
+        {
+          "type": "TEXT",
+          "value": "mett.research_page.METT_FOCUS_SUMMON.1",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "DISABLED",
+          "recipe_ids": []
+        },
+        {
+          "type": "INFUSION_CRAFTING",
+          "value": "",
+          "aspects": {},
+          "compound_blueprint": "",
+          "recipe_link_policy": "COMPLETED_SINGLE",
+          "recipe_ids": [
+            "mett:infusion/thaumaturgy/focus_summon_gondor"
+          ]
+        }
+      ]
+    }
+  ]
+}

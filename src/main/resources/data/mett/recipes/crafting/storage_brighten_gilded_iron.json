@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "me:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:storage_brighten_gilded_iron"
+  }
+}

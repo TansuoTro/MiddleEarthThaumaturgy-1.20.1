@@ -1,0 +1,40 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:ender_pearl"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:air_shard"
+    },
+    {
+      "item": "thaumcraft:order_shard"
+    },
+    {
+      "item": "thaumcraft:balanced_shard"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "thaumcraft:air_shard"
+    },
+    {
+      "item": "thaumcraft:order_shard"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "instability": 7,
+  "aspects": {
+    "permutatio": 16,
+    "praecantatio": 32,
+    "victus": 16,
+    "sano": 16,
+    "mett:nauglin": 16
+  },
+  "result": {
+    "item": "mett:focus_summon_dwarf"
+  }
+}

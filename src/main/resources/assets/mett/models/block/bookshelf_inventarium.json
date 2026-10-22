@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "mett:block/bookshelf_inventarium_top",
+    "side": "mett:block/bookshelf_inventarium"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mett:storage_daedelos_morgul"
+    }
+  ],
+  "result": {
+    "item": "me:morgul_steel_ingot",
+    "count": 9
+  }
+}

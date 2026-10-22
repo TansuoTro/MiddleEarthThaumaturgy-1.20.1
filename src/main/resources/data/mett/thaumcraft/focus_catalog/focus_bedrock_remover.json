@@ -1,0 +1,73 @@
+{
+  "focus_profiles": [
+    {
+      "focus": "mett:focus_bedrock_remover",
+      "color": 7697781,
+      "base_cost": {
+        "aer": 1000,
+        "terra": 1000,
+        "ordo": 500,
+        "perditio": 2000
+      },
+      "ranks": [
+        [
+          "thaumcraft:frugal"
+        ],
+        [
+          "thaumcraft:frugal"
+        ],
+        [
+          "thaumcraft:frugal"
+        ],
+        [
+          "thaumcraft:frugal"
+        ],
+        [
+          "thaumcraft:frugal"
+        ]
+      ],
+      "parameters": {
+        "vis_discount": {
+          "base": 0,
+          "per_level": {
+            "thaumcraft:frugal": 0.1
+          },
+          "min": 0,
+          "max": 1
+        }
+      },
+      "pipeline": {
+        "modules": [
+          "thaumcraft:focus_actions"
+        ],
+        "bindings": [
+          {
+            "id": "thaumcraft:actions/predict",
+            "stage": "thaumcraft:cast/predict",
+            "handler": "thaumcraft:prediction_cost",
+            "priority": 0
+          },
+          {
+            "id": "thaumcraft:actions/cast",
+            "stage": "thaumcraft:cast/step",
+            "handler": "thaumcraft:focus_actions",
+            "priority": -100
+          },
+          {
+            "id": "thaumcraft:actions/block",
+            "stage": "thaumcraft:use/before_formation",
+            "handler": "thaumcraft:focus_actions",
+            "priority": -100
+          },
+          {
+            "id": "thaumcraft:actions/input",
+            "stage": "thaumcraft:client/input_after_block",
+            "handler": "thaumcraft:focus_actions",
+            "priority": -100
+          }
+        ],
+        "casts": {}
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:focus_portable_hole"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:earth_shard"
+    },
+    {
+      "item": "thaumcraft:entropy_shard"
+    },
+    {
+      "item": "thaumcraft:earth_shard"
+    },
+    {
+      "item": "thaumcraft:entropy_shard"
+    },
+    {
+      "item": "thaumcraft:order_shard"
+    },
+    {
+      "item": "thaumcraft:order_shard"
+    }
+  ],
+  "instability": 9,
+  "aspects": {
+    "perditio": 64,
+    "tenebrae": 32,
+    "vacuos": 32,
+    "mett:utumno": 16,
+    "perfodio": 16
+  },
+  "result": {
+    "item": "mett:focus_bedrock_remover"
+  }
+}

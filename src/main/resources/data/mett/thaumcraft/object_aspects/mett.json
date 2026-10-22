@@ -1,0 +1,353 @@
+{
+  "direct": {
+    "mett:wand_core_gondor": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_gondor": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_gondor": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_gondor": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_hobbit": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_hobbit": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_hobbit": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_hobbit": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_dwarf": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_dwarf": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_dwarf": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_dwarf": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_blue_mountains": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_blue_mountains": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_blue_mountains": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_blue_mountains": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_gundabad": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_gundabad": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_gundabad": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_gundabad": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_wood_elf": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_wood_elf": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_wood_elf": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_wood_elf": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_galadhrim": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_galadhrim": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_galadhrim": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_galadhrim": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_uruk_hai": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_uruk_hai": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_uruk_hai": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_uruk_hai": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_rohan": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_rohan": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_rohan": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_rohan": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_mordor": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_mordor": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_mordor": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_mordor": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_core_dale": {
+      "praecantatio": 6,
+      "instrumentum": 3,
+      "metallum": 3
+    },
+    "mett:staff_core_dale": {
+      "praecantatio": 9,
+      "instrumentum": 5,
+      "metallum": 5
+    },
+    "mett:tinkerer_core_dale": {
+      "praecantatio": 12,
+      "instrumentum": 6,
+      "metallum": 6,
+      "machina": 3
+    },
+    "mett:focus_summon_dale": {
+      "praecantatio": 6,
+      "permutatio": 3,
+      "humanus": 3
+    },
+    "mett:wand_cap_mithril": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:wand_cap_orcsteel": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:wand_cap_dwarvensteel": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:wand_cap_galvorn": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:wand_cap_uruksteel": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:wand_cap_morgulsteel": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:wand_cap_bluedwarvensteel": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:wand_cap_blackuruksteel": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:wand_cap_elvensteel": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:wand_cap_gildediron": {
+      "metallum": 4,
+      "ordo": 2,
+      "praecantatio": 2
+    },
+    "mett:focus_bedrock_remover": {
+      "perditio": 6,
+      "vacuos": 4,
+      "praecantatio": 4
+    },
+    "mett:ring_warpward": {
+      "auram": 4,
+      "vitium": 4,
+      "metallum": 3,
+      "praecantatio": 3
+    },
+    "mett:storage_gulduril_black_uruk": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:storage_ithildin_blue_dwarven": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:storage_ithildin_dwarven": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:storage_edhelmir_elven": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:storage_daedelos_galvorn": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:storage_stared_mithril": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:storage_daedelos_morgul": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:storage_durnaur_orc": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:storage_gulduril_uruk": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:storage_brighten_gilded_iron": {
+      "metallum": 6,
+      "lux": 4
+    },
+    "mett:compressed_essentia_jar": {
+      "vitreus": 4,
+      "vinculum": 4
+    },
+    "mett:x2_compressed_essentia_jar": {
+      "vitreus": 6,
+      "vinculum": 6
+    },
+    "mett:extralarge_essentia_jar": {
+      "vitreus": 8,
+      "vinculum": 8
+    },
+    "mett:bookshelf_inventarium": {
+      "arbor": 4,
+      "cognitio": 6,
+      "praecantatio": 2
+    }
+  }
+}

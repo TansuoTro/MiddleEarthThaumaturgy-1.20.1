@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mett:storage_stared_mithril"
+    }
+  ],
+  "result": {
+    "item": "me:mithril_ingot",
+    "count": 9
+  }
+}

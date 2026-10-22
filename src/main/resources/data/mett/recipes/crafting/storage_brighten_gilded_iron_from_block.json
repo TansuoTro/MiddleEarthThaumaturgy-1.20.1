@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mett:storage_brighten_gilded_iron"
+    }
+  ],
+  "result": {
+    "item": "me:steel_ingot",
+    "count": 9
+  }
+}

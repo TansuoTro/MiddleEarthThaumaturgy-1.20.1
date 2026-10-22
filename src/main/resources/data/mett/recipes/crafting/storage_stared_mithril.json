@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "me:mithril_ingot"
+    }
+  },
+  "result": {
+    "item": "mett:storage_stared_mithril"
+  }
+}

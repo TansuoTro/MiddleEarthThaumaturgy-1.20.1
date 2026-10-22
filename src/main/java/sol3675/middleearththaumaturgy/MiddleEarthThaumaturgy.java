@@ -12,6 +12,9 @@ import sol3675.middleearththaumaturgy.common.blocks.METTBlocks;
 import sol3675.middleearththaumaturgy.common.items.METTItems;
 import sol3675.middleearththaumaturgy.compat.me.MiddleEarthCompat;
 import sol3675.middleearththaumaturgy.config.METTConfig;
+import sol3675.middleearththaumaturgy.focus.BedrockRemoverFocus;
+import sol3675.middleearththaumaturgy.focus.METTFoci;
+import sol3675.middleearththaumaturgy.focus.SummonFocus;
 import sol3675.middleearththaumaturgy.references.LibMisc;
 import sol3675.middleearththaumaturgy.wand.WandRegistration;
 
@@ -30,6 +33,9 @@ public class MiddleEarthThaumaturgy {
         METTBlocks.BLOCKS.register(bus);
         METTBlocks.BLOCK_ITEMS.register(bus);
         METTBlocks.BLOCK_ENTITIES.register(bus);
+        // Touching the focus registry is what makes its static initialiser run; the items themselves
+        // go into the same deferred register as everything else.
+        METTFoci.SUMMON.size();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, METTConfig.SPEC, "mett-common.toml");
         bus.addListener(this::commonSetup);
         LOGGER.info("Middle-Earth Thaumaturgy {} loading; Middle-earth present: {}",
@@ -40,5 +46,9 @@ public class MiddleEarthThaumaturgy {
         // TC4R installs wand parts through a runtime index, so the parts go in after registration
         // has finished and before any server starts.
         event.enqueueWork(WandRegistration::register);
+        // The focus actions are indexed at runtime too, and the wand predicts on the client, so they
+        // are registered on both sides.
+        event.enqueueWork(BedrockRemoverFocus::register);
+        event.enqueueWork(SummonFocus::register);
     }
 }

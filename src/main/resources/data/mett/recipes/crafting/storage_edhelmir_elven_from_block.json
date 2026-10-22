@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mett:storage_edhelmir_elven"
+    }
+  ],
+  "result": {
+    "item": "me:elven_steel_ingot",
+    "count": 9
+  }
+}

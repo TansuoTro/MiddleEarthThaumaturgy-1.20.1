@@ -1,7 +1,6 @@
 package sol3675.middleearththaumaturgy.compat.me;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -149,6 +148,17 @@ public final class MiddleEarthCompat {
         return wandDisposition.equals(playerDisposition) ? TIER_MID : TIER_LOW;
     }
 
+    /**
+     * Whether the player may call on this faction at all, and how strong the call may be.
+     *
+     * <p>Replaces the donor's numeric alignment bands: {@link #TIER_MID} or better can summon the
+     * rank and file, and only membership of the faction itself ({@link #TIER_HIGH}) reaches the
+     * elites. {@link #TIER_NONE} means the faction is hostile or the player has no faction.
+     */
+    public static int summonTier(Player player, String factionId, String factionDisposition) {
+        return visTier(player, factionId, factionDisposition);
+    }
+
     /** Vis restored per update tick for a tier, matching the donor's 0/5/10/50 progression. */
     public static int visRecovery(int tier) {
         return switch (tier) {
@@ -200,26 +210,16 @@ public final class MiddleEarthCompat {
     // ------------------------------------------------------------------- NPCs
 
     /**
-     * A Middle-earth NPC spawn egg for one {@code npc_type} id such as {@code me:gondor.soldier}.
+     * The Middle-earth spawn egg for one {@code npc_type} id such as {@code gondor.soldier}.
      *
-     * <p>Every NPC in Middle-earth shares one entity type and one spawn-egg item; the variant
-     * lives in the item's {@code EntityTag.InitializationData} compound. Building that stack here
-     * keeps the summon focus free of any Middle-earth class reference.
+     * <p>Middle-earth registers one spawn-egg item per NPC type, named after the type:
+     * {@code me:gondor.soldier} has {@code me:gondor.soldier_spawn_egg}. Using the real egg keeps
+     * the summon focus out of Middle-earth's entity construction entirely - the egg's own
+     * {@code useOn} performs the variant lookup and the spawn.
      */
     public static ItemStack npcSpawnEgg(String npcTypeId) {
-        Item egg = item("npc_spawn_egg");
-        if (egg == null) {
-            return ItemStack.EMPTY;
-        }
-        ItemStack stack = new ItemStack(egg);
-        CompoundTag entityTag = new CompoundTag();
-        entityTag.putString("id", MOD_ID + ":npc");
-        CompoundTag initialization = new CompoundTag();
-        initialization.putString("Type", npcTypeId);
-        initialization.putBoolean("IsRandom", false);
-        entityTag.put("InitializationData", initialization);
-        stack.getOrCreateTag().put("EntityTag", entityTag);
-        return stack;
+        Item egg = item(npcTypeId + "_spawn_egg");
+        return egg == null ? ItemStack.EMPTY : new ItemStack(egg);
     }
 
     // -------------------------------------------------------------- reflection

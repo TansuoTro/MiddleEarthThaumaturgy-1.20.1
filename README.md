@@ -53,6 +53,16 @@ renamed to the `<artifactId>-<version>` Maven layout on seeding.
 | P2 Middle-earth interop layer | done - `compat/me/MiddleEarthCompat` (registry ids, faction/disposition via reflection, NPC spawn eggs) |
 | P3 aspects | 25 of the donor's 39 data-pack aspects ported (13 faction aspects without a Middle-earth counterpart and `nazgul` are dropped) |
 | P4a faction wands | 11 rod items + rods + faction recharge behaviour; Thaumic Tinkerer variants (1000 vis, glowing) register when TT is present |
-| P4b other content | not started - compressed essentia jars, bookshelf inventarium, storage, rings, foci |
-| P5 recipes/research | not started |
-| P6 runtime verification | not started |
+| P4b other content | done - 3 compressed essentia jars, 10 metal storage blocks, inventarium bookshelf, warpward ring (Curios), one bedrock-remover focus and one summon focus per kept faction (11) |
+| P5 recipes/research | done - 46 arcane recipes, 12 infusion recipes, 10 storage recipes, one METT research category with 7 entries, object aspects for all 70 items |
+| P6 runtime verification | in progress - staged in the Sinytra Connector instance |
+
+### Deliberately not ported
+
+| donor content | why |
+|---|---|
+| the material and nugget metadata families (23 items) | Middle-earth already ships the metals and nuggets they stood for, so the recipes use `me:` items directly instead of a parallel item family |
+| handheld faction crafter and its craft-table GUI | Middle-earth's own artisan table does the same job with its own matching rules; a second crafting GUI would duplicate it |
+| the inventarium half of the bookshelf | it implemented Automagy's `IInventariumSlotUpgrade`, and Automagy has no 1.20.1 build; the enchantment bonus is kept |
+| Travellers Gear titles | Travellers Gear has no 1.20.1 build and the titles were cosmetic |
+

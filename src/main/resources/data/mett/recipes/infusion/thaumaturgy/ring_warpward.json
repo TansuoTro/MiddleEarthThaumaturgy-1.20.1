@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:mundane_ring"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:sanity_soap"
+    },
+    {
+      "item": "me:mithril_nugget"
+    },
+    {
+      "item": "me:mithril_nugget"
+    },
+    {
+      "item": "me:mithril_nugget"
+    }
+  ],
+  "instability": 8,
+  "aspects": {
+    "auram": 64,
+    "vitium": 64,
+    "mett:ithryn": 64,
+    "mett:alfirin": 64
+  },
+  "result": {
+    "item": "mett:ring_warpward"
+  }
+}
