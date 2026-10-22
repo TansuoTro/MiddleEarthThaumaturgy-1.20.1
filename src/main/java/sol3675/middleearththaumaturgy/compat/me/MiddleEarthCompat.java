@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.Nullable;
@@ -42,6 +43,10 @@ public final class MiddleEarthCompat {
     private static Method factionGetId;
     private static Method factionIsHostileToward;
     private static Method factionGetDisposition;
+    private static Method factionGetDispositionString;
+    private static Method spawnEggForNpcType;
+    private static boolean spawnEggLookupFailed;
+    private static boolean warnedMissingEgg;
     private static boolean reflectionFailed;
 
     private MiddleEarthCompat() {
@@ -112,6 +117,13 @@ public final class MiddleEarthCompat {
             return null;
         }
         try {
+            // DispositionType is an enum with a display string; the string is what the data files use.
+            if (factionGetDispositionString != null) {
+                Object name = factionGetDispositionString.invoke(faction);
+                if (name != null) {
+                    return name.toString();
+                }
+            }
             Object disposition = factionGetDisposition.invoke(faction);
             return disposition == null ? null : disposition.toString();
         } catch (ReflectiveOperationException | RuntimeException exception) {
@@ -138,7 +150,7 @@ public final class MiddleEarthCompat {
             return TIER_NONE;
         }
         String playerFactionId = factionId(playerFaction);
-        if (playerFactionId != null && playerFactionId.equals(wandFactionId)) {
+        if (playerFactionId != null && isSameOrSubfaction(playerFactionId, wandFactionId)) {
             return TIER_HIGH;
         }
         if (isHostileToward(playerFaction, wandFactionId)) {
@@ -167,6 +179,17 @@ public final class MiddleEarthCompat {
             case TIER_LOW -> 5;
             default -> 0;
         };
+    }
+
+    /**
+     * Whether the player's faction is the given faction or one of its subfactions.
+     *
+     * <p>Middle-earth names a subfaction after its parent ({@code me:longbeards} has
+     * {@code me:longbeards.erebor}), and a player who joins Erebor carries the subfaction id, so a
+     * plain string comparison would deny the parent's own wand and foci to its members.
+     */
+    private static boolean isSameOrSubfaction(String playerFactionId, String factionId) {
+        return playerFactionId.equals(factionId) || playerFactionId.startsWith(factionId + ".");
     }
 
     private static @Nullable String factionId(Object faction) {
@@ -210,16 +233,76 @@ public final class MiddleEarthCompat {
     // ------------------------------------------------------------------- NPCs
 
     /**
-     * The Middle-earth spawn egg for one {@code npc_type} id such as {@code gondor.soldier}.
+     * A usable spawn egg for one {@code npc_type} id such as {@code gondor.soldier}.
      *
-     * <p>Middle-earth registers one spawn-egg item per NPC type, named after the type:
-     * {@code me:gondor.soldier} has {@code me:gondor.soldier_spawn_egg}. Using the real egg keeps
-     * the summon focus out of Middle-earth's entity construction entirely - the egg's own
-     * {@code useOn} performs the variant lookup and the spawn.
+     * <p>Middle-earth does <b>not</b> register an item per NPC type. {@code item.me.<npc_type>_spawn_egg}
+     * is only a language key: the helper names the generic {@code me:npc_spawn_egg} stack with it, and
+     * the stack itself carries {@code EntityTag.InitializationData} plus the faction and race
+     * components. So the egg has to be built by Middle-earth, which is what
+     * {@code NpcSpawnEggHelper.getSpawnEgg} does; the plain item lookup below only ever succeeds for
+     * the legacy per-entity eggs ({@code me:gondorian_soldier_spawn_egg} and friends).
      */
-    public static ItemStack npcSpawnEgg(String npcTypeId) {
+    public static ItemStack npcSpawnEgg(Level level, String npcTypeId) {
+        ResourceLocation id = ResourceLocation.tryBuild(MOD_ID, npcTypeId);
+        if (id == null) {
+            return ItemStack.EMPTY;
+        }
+        Method helper = spawnEggForNpcType();
+        if (helper != null && level != null) {
+            try {
+                Object built = helper.invoke(null, level, id);
+                if (built instanceof ItemStack stack && !stack.isEmpty()) {
+                    return stack;
+                }
+            } catch (ReflectiveOperationException | RuntimeException exception) {
+                spawnEggLookupFailed = true;
+            }
+        }
+        // Fallback for the legacy per-entity eggs; the dotted npc_type ids have no item.
         Item egg = item(npcTypeId + "_spawn_egg");
-        return egg == null ? ItemStack.EMPTY : new ItemStack(egg);
+        if (egg == null) {
+            if (!warnedMissingEgg) {
+                warnedMissingEgg = true;
+                MiddleEarthThaumaturgy.LOGGER.warn(
+                        "No Middle-earth spawn egg for npc type {}; the helper lookup failed", npcTypeId);
+            }
+            return ItemStack.EMPTY;
+        }
+        return new ItemStack(egg);
+    }
+
+    /**
+     * Middle-earth's own {@code NpcSpawnEggHelper.getSpawnEgg(Level, ResourceLocation)}.
+     *
+     * <p>The per-type spawn-egg items are only display shells: an NPC is spawned from the generic
+     * {@code me:npc_spawn_egg} carrying {@code EntityTag.InitializationData} (plus the faction and
+     * race components). The helper is what builds that stack, and it is also what the creative tab
+     * uses, so it is the only reliable way to obtain a working egg for an {@code npc_type}.
+     */
+    private static @Nullable Method spawnEggForNpcType() {
+        if (spawnEggLookupFailed) {
+            return null;
+        }
+        if (spawnEggForNpcType != null) {
+            return spawnEggForNpcType;
+        }
+        try {
+            Class<?> helper = Class.forName("net.jukoz.me.entity.npcs.initializer.NpcSpawnEggHelper");
+            for (Method method : helper.getMethods()) {
+                Class<?>[] parameters = method.getParameterTypes();
+                if (method.getName().equals("getSpawnEgg") && parameters.length == 2
+                        && parameters[0].isAssignableFrom(Level.class)
+                        && parameters[1].isAssignableFrom(ResourceLocation.class)) {
+                    method.setAccessible(true);
+                    spawnEggForNpcType = method;
+                    return method;
+                }
+            }
+        } catch (ClassNotFoundException | LinkageError exception) {
+            MiddleEarthThaumaturgy.LOGGER.warn("Middle-earth spawn egg helper unavailable: {}", exception.toString());
+        }
+        spawnEggLookupFailed = true;
+        return null;
     }
 
     // -------------------------------------------------------------- reflection
@@ -238,6 +321,7 @@ public final class MiddleEarthCompat {
             factionGetId = findMethod(faction, "getId", 0);
             factionIsHostileToward = findMethod(faction, "isHostileToward", 1);
             factionGetDisposition = findMethod(faction, "getDisposition", 0);
+            factionGetDispositionString = findMethod(faction, "getDispositionString", 0);
             if (getPlayerFaction == null || factionGetId == null) {
                 reflectionFailed = true;
                 return false;

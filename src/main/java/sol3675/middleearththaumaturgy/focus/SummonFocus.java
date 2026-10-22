@@ -96,18 +96,21 @@ public final class SummonFocus {
         List<String> pool = tier == MiddleEarthCompat.TIER_HIGH ? faction.elites() : faction.rankAndFile();
         // Middle-earth must actually have this faction's spawn eggs; checked on a fixed entry so the
         // simulation and the execution agree. The roll itself only happens when the cast is paid.
-        if (MiddleEarthCompat.npcSpawnEgg(pool.get(0)).isEmpty()) {
+        if (MiddleEarthCompat.npcSpawnEgg(player.level(), pool.get(0)).isEmpty()) {
             return FocusActionResult.PASS;
         }
         if (!context.pay(context.configuredCost(), action).affordable()) {
             return FocusActionResult.FAILED;
         }
         if (action == VisAction.EXECUTE) {
-            ItemStack egg = MiddleEarthCompat.npcSpawnEgg(pool.get(player.getRandom().nextInt(pool.size())));
+            ItemStack egg = MiddleEarthCompat.npcSpawnEgg(player.level(), pool.get(player.getRandom().nextInt(pool.size())));
             BlockPos target = hit.getBlockPos().relative(hit.getDirection());
             BlockHitResult placeAt = new BlockHitResult(Vec3.atCenterOf(target), hit.getDirection(), target, false);
             InteractionHand hand = context.hand();
-            egg.useOn(new UseOnContext(player, hand, placeAt));
+            // The egg must be the context's stack: Middle-earth's egg reads EntityTag from it, spawns
+            // with it so the NPC picks up its npc_type, and shrinks it afterwards. Passing the hand's
+            // stack (the wand) would spawn a typeless NPC and consume the wand.
+            egg.useOn(new UseOnContext(player.level(), player, hand, egg, placeAt));
             context.setCooldown(COOLDOWN);
         }
         return FocusActionResult.SUCCESS;
