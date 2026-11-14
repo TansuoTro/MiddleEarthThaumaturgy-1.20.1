@@ -26,7 +26,9 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="thaumcraft"
 mandatory=true
-versionRange="[${thaumcraft_runtime_version}]"
+# Open lower bound: accept TC4R 0.1.0-20759 and any later build, so upgrading
+# Thaumcraft 4R does not make Forge reject this mod.
+versionRange="[${thaumcraft_runtime_version},)"
 ordering="AFTER"
 side="BOTH"
 
