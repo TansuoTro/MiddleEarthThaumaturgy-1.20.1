@@ -4,8 +4,8 @@ import dev.tc4port.thaumcraft.api.aspect.AspectAmounts;
 import dev.tc4port.thaumcraft.api.aspect.AspectId;
 import dev.tc4port.thaumcraft.api.aspect.AspectApi;
 import dev.tc4port.thaumcraft.api.essentia.EssentiaApi;
-import dev.tc4port.thaumcraft.api.essentia.EssentiaJarView;
 import dev.tc4port.thaumcraft.api.essentia.EssentiaSource;
+import dev.tc4port.thaumcraft.api.essentia.EssentiaStorageView;
 import dev.tc4port.thaumcraft.api.essentia.EssentiaStorageApi;
 import dev.tc4port.thaumcraft.api.essentia.EssentiaTransferMode;
 import dev.tc4port.thaumcraft.api.essentia.EssentiaTransport;
@@ -30,7 +30,7 @@ import sol3675.middleearththaumaturgy.common.blocks.METTBlocks;
  * never labels itself, which matches the donor - its jars only differed in capacity.
  */
 public class EssentiaJarBlockEntity extends BlockEntity
-        implements EssentiaTransport, EssentiaSource, EssentiaJarView {
+        implements EssentiaTransport, EssentiaSource, EssentiaStorageView {
 
     private static final String KEY_ASPECT = "Aspect";
     private static final String KEY_AMOUNT = "Amount";
@@ -59,7 +59,6 @@ public class EssentiaJarBlockEntity extends BlockEntity
         return this.getBlockState().getBlock() instanceof EssentiaJarBlock block ? block : null;
     }
 
-    @Override
     public int capacity() {
         EssentiaJarBlock block = jar();
         if (block == null) {
@@ -69,10 +68,20 @@ public class EssentiaJarBlockEntity extends BlockEntity
                 this.level != null && this.level.isClientSide);
     }
 
-    @Nullable
     @Override
+    public int essentiaCapacity() {
+        return capacity();
+    }
+
+    @Nullable
     public AspectId filter() {
         return this.filter;
+    }
+
+    @Nullable
+    @Override
+    public AspectId essentiaFilter() {
+        return filter();
     }
 
     @Nullable
